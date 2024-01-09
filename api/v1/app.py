@@ -17,10 +17,12 @@ def teardown_app(session):
     """remove sqlalchemy session"""
     storage.close()
 
+
 @app.errorhandler(404)
 def not_found_error(error):
     """ 404 error"""
     return jsonify({"error": "Not found"}), 404
+
 
 if __name__ == "__main__":
     host = environ.get('HBNB_API_HOST')
